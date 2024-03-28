@@ -1,0 +1,44 @@
+<robot name="cameraman">
+
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name="world"/>
+
+    <link name="code">
+        <visual>
+            <geometry>
+                <mesh filename="arucocube_black.stl" scale="0.00251"/>
+            </geometry>
+            <origin xyz="0 0 0.05" rpy="0 0 0" />
+            <material name="black"/>
+        </visual>
+    </link>
+
+    <joint name="box_w" type="fixed">
+        <parent link="world"/>
+        <child link="code"/> 
+        <origin xyz="1 0 0.5" rpy="0 0 0" />    
+    </joint>
+
+    <link name="code_bg">
+        <visual>
+            <geometry>
+                <box size="0.1 0.1 0.1"/>
+            </geometry>
+            <origin xyz="0 0 0.05" rpy="0 0 0" />
+        </visual>
+        <material name="white"/>
+    </link>
+
+    <joint name="box_bg" type="fixed">
+        <parent link="code"/>
+        <child link="code_bg"/>     
+    </joint>
+
+</robot>
